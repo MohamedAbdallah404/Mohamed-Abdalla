@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="js/bootstrap.min.js">
+    <style>
+/* Start Global Rules  */
+* {
+-webkit-box-sizing: border-box;
+-moz-box-sizing:border-box ;
+box-sizing: border-box;
+}
+:root {
+    --main-color: #2196f3;
+    --main-color-alt: #1787e0;
+    --main-transition: 0.3s;
+    --main-padding-top :100px;
+    --main-padding-bottom :100px;
+    --section-background:#ececec;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Cairo', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* small */
+@media (min-width: 768px){
+    .container{
+        width: 750px;
+    }
+}
+/* medium  */
+@media (min-width:992px){
+    .container{
+        width: 970px;
+    }
+}
+/* large  */
+@media (min-width:1200px){
+    .container{
+        width: 1170px;
+    }
+}
+.main-tittle{
+    margin: 0 auto 80px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    font-size: 30px;
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+    transition: var(--main-transition);
+
+}
+.main-tittle::before{
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: var(--main-color);
+    position: absolute;
+    border-radius: 50%;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.main-tittle::after{
+    content: ""; 
+    width: 12px;
+    height: 12px;
+    background-color: var(--main-color);
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.main-tittle::before{
+    left: -30px;
+}
+.main-tittle::after{
+    right: -30px;
+}
+.main-tittle:hover::before{
+z-index: -1;
+animation: left-move 0.5s linear forwards;
+}
+.main-tittle:hover::after{
+    z-index: -1;
+    animation: right-move 0.5s linear forwards;
+    }
+.main-tittle:hover{
+    color: white;
+    border: 2px solid white;
+    transition-delay:0.5s ;
+}
+/* End Global Rules  */
+/* Start Landing */
+.landing {
+position: relative;
+}
+.landing::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -40px;
+    width: 100%;
+    height: 100%;
+    background-color: #ececec;
+    z-index: -1;
+    transform: skewY(-6deg);
+    transform-origin: top left;
+  }
+  .landing .container {
+    min-height: calc(100vh - 72px);
+    display: flex;
+    align-items: center;
+    padding-bottom: 120px;
+  }
+.landing .text{
+    flex: 1;
+}
+@media (max-width:991px){
+    .landing .text{
+        text-align: center;
+    }
+}
+.landing .text h1 {
+font-size: 40px;
+margin: 0;
+letter-spacing: -2px;
+}
+@media (max-width:767px){
+    .landing .text h1{
+       font-size: 28px;
+    }
+}
+.landing .text p {
+    font-size: 23px;
+    line-height: 1.7;
+    margin: 5px 0 0;
+    color: #666;
+    max-width: 500px;
+  }
+@media (max-width:991px){
+    .landing .text p{
+       margin: 10px auto;
+    }
+}
+@media (max-width:767px){
+    .landing .text p{
+       font-size: 18px;
+    }
+}
+.landing .image img {
+    position: relative;
+    width: 1000px;
+  }
+@media (max-width:991px){
+    .landing .image{
+        display: none;
+    }
+}
+.landing .go-down{
+    color: var(--main-color);
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: var(--main-transition);
+}
+.landing .go-down:hover{
+    color: rgb(0, 195, 255);
+}
+
+.landing .go-down i {
+    animation: bouncing 1.5s infinite;
+  }
+  p{
+    font-size: 30px;
+    color: #000000;
+  }
+  .cap{
+    text-align: center;
+color: rgb(173, 0, 253);
+font-size: 50px;
+  }
+ /* End Landing  */
+/* Start Articles */
+.articles{
+    padding-top:var(--main-padding-top) ;
+    padding-bottom: var(--main-padding-bottom);
+    position: relative;
+ }
+ .articles .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap: 40px;
+ }
+ .articles .box{
+    box-shadow:0 2px 15px rgb(0 0 0 /10%);
+    background-color: white;
+    border-radius:6px ;
+    overflow: hidden;
+   transition: transform var(--main-transition) , box-shadow var(--main-transition);
+ }
+ .articles .box:hover{
+    transform: translateY(-10px);
+    box-shadow:0 2px 15px rgb(0 0 0 /50%);
+ }
+ .articles .box img{
+    width: 100%;
+    max-width: 100%;
+ }
+ .articles .box .content{
+    padding: 20px;
+ }
+ .articles .box .content h3{
+margin: 0;
+ }
+ .articles .box .content p{
+margin: 10px 0 0;
+line-height: 1.5;
+color: #777;
+ }
+ .articles .box .info{
+    padding: 20px;
+    border-top: 1px solid #E6E6E7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+ .articles .box .info a{
+    color: var(--main-color);
+    font-weight: bold;
+ }
+ .articles .box .info i{
+    color: var(--main-color);
+ }
+ .articles .box:hover .info i{
+animation: moving-arrow 0.6s linear infinite;
+ }
+ /* End Articles  */
+    
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Click to Menu</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home Page</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex mt-3" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Start Landing  -->
+<div class="landing">
+  <div class="container">
+      <div class="text">
+          <h1></h1>
+          <p> </p>
+      </div>
+     <div class="image">
+      <img src="Image/nanotec.jpeg"  alt="">
+     </div> 
+  </div>  <!-- container -->
+</div>
+<!-- End Landing  -->
+<h1 class="cap">About  Nanotechnology and artificial intelligence ..!</h1>
+          <p> Nanotechnology and artificial intelligence (AI) are two of the most revolutionary technologies of our time. While nanotechnology deals with the manipulation of matter at the atomic and molecular level, AI is concerned with creating intelligent machines that can perform tasks that typically require human intelligence. The combination of these two technologies has the potential to revolutionize many industries, including healthcare, energy, and manufacturing.
+
+            One of the most promising applications of nanotechnology in AI is in the development of nanobots or nanorobots. These are tiny robots that can be programmed to perform specific tasks at the molecular level. For example, they could be used to deliver drugs directly to cancer cells or repair damaged tissue in the body.
+            
+            Nanobots could also be used in manufacturing processes to create materials with unique properties. For example, they could be used to create stronger and more lightweight materials for use in aerospace applications. They could also be used to create new types of sensors that are more sensitive and accurate than current technology.
+            
+            Another area where nanotechnology and AI are intersecting is in the development of quantum computing. Quantum computing is a type of computing that uses quantum bits (qubits) instead of traditional binary bits. Qubits can exist in multiple states at once, which allows for much faster processing than traditional computers.
+            
+            Nanotechnology plays a crucial role in quantum computing because it enables scientists to manipulate individual atoms and molecules to create qubits. This has led to significant advances in quantum computing over the past few years, with companies like IBM and Google making significant progress towards creating practical quantum computers.
+            
+            In addition to these applications, nanotechnology is also being used in AI research to develop more efficient algorithms for machine learning. Machine learning algorithms rely on large amounts of data to learn patterns and make predictions. However, processing this data requires a significant amount of energy.
+            
+            Nanotechnology can help reduce the energy requirements for machine learning by creating more efficient hardware components. For example, researchers have developed memristors - electronic components that can store information without requiring power - which could significantly reduce the energy required for machine learning algorithms.
+            
+            Despite these exciting developments, there are also concerns about the potential risks associated with combining nanotechnology and AI. One concern is that nanobots could malfunction or be hacked, causing unintended harm to humans or the environment.
+            
+            Another concern is that as AI becomes more advanced, it may become difficult for humans to understand how it works or control its actions. This raises questions about who will be responsible if an AI system causes harm or makes a mistake.
+            
+            Overall, while there are certainly risks associated with combining nanotechnology and AI, there is also enormous potential for these technologies to transform many industries and improve our lives in countless ways. As researchers continue to explore this intersection between nanotechnology and AI, we can expect even more exciting developments in the years ahead.
+
+            Nanotechnology is a rapidly growing field of science and technology that deals with the manipulation of matter at the nanoscale level. It involves the design, production, and application of materials and devices with dimensions ranging from 1 to 100 nanometers (nm). This field has the potential to revolutionize many areas of science and technology, including medicine, electronics, energy, and environmental science.
+
+            One of the most significant advantages of nanotechnology is its ability to manipulate materials at the atomic and molecular level. This allows scientists to create new materials with unique properties that were previously impossible to achieve. For example, by controlling the size and shape of nanoparticles, scientists can create materials with enhanced strength, durability, and conductivity.
+            
+            In medicine, nanotechnology has already shown great promise in improving drug delivery systems. Nanoparticles can be designed to target specific cells or tissues in the body, allowing drugs to be delivered more effectively and with fewer side effects. Additionally, nanoparticles can be used for imaging purposes or as sensors to detect diseases at an early stage.
+            
+            In electronics, nanotechnology has led to the development of smaller and more efficient devices. By using nanoscale components such as transistors and memory cells, computer processors can be made smaller and faster. Nanoscale wires can also be used for energy-efficient data transfer within electronic devices.
+            
+            Nanotechnology also has great potential for energy applications. For example, solar cells made from nanoparticles can absorb more sunlight than traditional solar cells while using less material. Additionally, nanomaterials can be used in batteries to increase their capacity and lifespan.
+            
+            Despite these promising applications, there are also concerns about the potential risks associated with nanotechnology. Some studies have suggested that nanoparticles may have toxic effects on living organisms when they enter the environment or are ingested by humans or animals.
+            
+            To address these concerns, researchers are working on developing safe methods for producing and using nanoparticles. They are also investigating ways to monitor their behavior in the environment and within living organisms.
+            
+            In conclusion, nanotechnology is a rapidly growing field with enormous potential for improving many areas of science and technology. While there are still concerns about its safety implications, ongoing research is aimed at addressing these issues while continuing to advance this exciting field.
+          </p>
+          <h1 class="cap">Some Image About Nanotechnology ..!</h1>
+          <div class="articles" id="articles">
+            <div class="container"> 
+          <div class="box">
+            <img src="Image/NanoTechonolgy.png" alt="">
+            <div class="content">
+                   <h3>NanoTechonolgy</h3>
+                 </div>
+               
+              </div>  <!-- box -->
+          </div>
+
+          <div class="container"> 
+            <div class="box">
+              <img src="Image/NanoTechonolgy.png" alt="">
+              <div class="content">
+                     <h3>NanoTechonolgy</h3>
+                   </div>
+                    
+                </div>  <!-- box -->
+            </div>
+          </div>
+     
+</body>
+</html>
